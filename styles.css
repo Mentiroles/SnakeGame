@@ -1,0 +1,207 @@
+* {
+    font-family: 'Share Tech Mono', monospace;
+  }
+  
+  body {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: 1fr 4fr ;
+    background-color: rgb(24, 109, 24);
+   
+    height: 100vh;
+    margin: 0;
+  }
+
+  #pantalla {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header {
+
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #0a471e;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: content-box;
+  }
+  header div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  #board, .boardInfo {
+    max-width: 55vb;
+    align-items: center;
+  }
+  
+  #board {
+    border: 1px solid #0a471e;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    width: 55vb;; /* Agrega este estilo para mantener el ancho del #board */
+    height: 55vb;; /* Agrega este estilo para mantener el alto del #board */
+  }
+ 
+  
+
+  .mobile {
+    width: 100vw;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+
+  #start, .boardInfo {
+    font-size: 25px;
+  }
+  
+  #gameOver {
+    display: none;
+  }
+  
+  .boardInfo {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    width: 100%;
+  }
+  #start {
+    background-color: #f35a69;
+    border: 1px solid #f35a69;
+    border-radius: 10px;
+    color: white;
+    
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+  }
+  
+  #start:hover {
+    background-color: #e74c3c;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  #start:active {
+    background-color: #c0392b;
+    transform: scale(0.9);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  #start:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  #scoreBoard {
+    display: inline-flex;
+    
+  }
+  
+  .square {
+    aspect-ratio: 1;
+  }
+  
+  .emptySquare {
+    background-color: #aeeeb1;
+  }
+  
+  .snakeSquare {
+    background-image: linear-gradient(to bottom, #e3e773, #8bc34a, #3e8e41, #006400);
+    background-repeat: no-repeat;
+    
+  }
+  
+  .foodSquare {
+    background-color: #f1ef44;
+    border: 1px solid #000;
+    
+  }
+
+  .snow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  .snow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgb(30, 214, 86), rgba(37, 141, 45, 0));
+    background-position: 0% 0%;
+    animation: rgb(163, 150, 150) 10s linear infinite;
+  }
+  .snowflake {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    
+background-image: url('utils/png-clipart-brown-egg-egg-white-sphere-egg-food-broken-egg-removebg-preview.png');
+
+    background-size: cover;
+    animation: fall 5s linear infinite;
+  }
+  @keyframes snow {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 100% 100%;
+    }
+  }
+  @keyframes fall {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(100vh);
+    }
+  }
+
+  @keyframes fall {
+    0% {
+      transform: translateY(0) rotate(0deg);
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg);
+    }
+  }
+  
+  svg {
+    
+    
+    width: 10%;
+    height: 30%;
+    pointer-events: none;
+  }
